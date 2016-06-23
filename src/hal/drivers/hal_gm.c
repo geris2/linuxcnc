@@ -355,9 +355,16 @@ rtapi_pci_device_id gm_pci_tbl[] = {
         .vendor = PLX_VENDOR_ID,
         .device = GM_DEVICE_ID,
         .subvendor = PLX_VENDOR_ID,
-        .subdevice = GM_SUBDEVICE_ID,
+        .subdevice = GM_SUBDEVICE_ID_1,
     },
  
+    {
+        .vendor = PLX_VENDOR_ID,
+        .device = GM_DEVICE_ID,
+        .subvendor = PLX_VENDOR_ID,
+        .subdevice = GM_SUBDEVICE_ID_2,
+    },
+
     {0,},
 };
 
@@ -416,6 +423,7 @@ static int
 gm_pci_probe(struct rtapi_pci_dev *dev, const struct rtapi_pci_device_id *id)
 {	
         int			error=0;
+        u16			temp=0;
 	card			*pCard = NULL;
 	gm_device_t		*pDevice;
 
